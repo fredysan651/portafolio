@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio - Fredy Estupiñan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #71717B 0%, #1E2939 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        nav h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, #71717B
+, #1E2939);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #1D293D;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #71717B 0%, #1E2939 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            margin-top: -2rem;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: slideInDown 0.8s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: slideInUp 0.8s ease;
+        }
+
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #1D293D;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 4rem 0;
+            background: white;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #1D293D;
+            text-align: center;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .about-photo {
+            text-align: center;
+        }
+
+        .about-photo img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 4px solid #71717B;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .about-photo img:hover {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #71717B 0%, #1E2939 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            border: 2px solid #1D293D;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .project-card h4 {
+            color: #1D293D;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #1D293D 100%);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Fredy Estupiñan</h1>
+
+            
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre">Sobre mí</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <h2>Bienvenido a mi Portafolio</h2>
+        <p>Desarrollador apasionado por crear soluciones innovadoras</p>
+        <a href="#proyectos" class="btn">Ver mis proyectos</a>
+        <a href="#contacto" class="btn">Contáctame</a>
+    </section>
+
+    <main class="container">
+        <section id="sobre">
+            <h3>Sobre mí</h3>
+            <div class="about-content">
+                <div class="about-photo">
+                    <img src="images/fredy e.jpeg" alt="Foto de Fredy Estupiñan">
+                </div>
+                <div class="about-text">
+                    <p>Soy un desarrollador web y de software apasionado por la tecnología, tengo 19 años y actualmente me encuentro aun en mis estudios universitarios. Me encanta crear aplicaciones funcionales y atractivas que resuelven problemas reales, ademas soy un joven curioso interesado en cada dia aprender mas y nuevas cosas.</p>
+                    <p style="margin-top: 1rem;">Con experiencia en desarrollo frontend y backend, busco constantemente aprender nuevas tecnologías y mejorar mis habilidades para ofrecer soluciones de calidad.</p>
+                </div>
+                <div class="about-text">
+                    <p><strong>Ubicación:</strong> Colombia</p>
+                    <p><strong>Email:</strong> fredyestupinan10@gmail.com</p>
+                    <p><strong>Teléfono:</strong> +57 322 2571931</p>
+                    <p><strong>Experiencia:</strong> 6 meses y actualmente en practicas</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="habilidades">
+            <h3>Habilidades</h3>
+            <div class="skills">
+                <div class="skill-card">C#</div>
+                <div class="skill-card">Java</div>
+                <div class="skill-card">HTML & CSS</div>
+                <div class="skill-card">JavaScript</div>
+                <div class="skill-card">React</div>
+                <div class="skill-card">Node.js</div>
+                <div class="skill-card">Python</div>
+                <div class="skill-card">Bases de Datos</div>
+                <div class="skill-card">Git</div>
+                <div class="skill-card">Responsive Design</div>
+            </div>
+        </section>
+
+        <section id="proyectos">
+            <h3>Mis Proyectos</h3>
+            <div class="projects">
+                <div class="project-card">
+                    <h4>Proyecto 1:</h4>
+                    <p>Plataforma basica para el inventario de una biblioteca.</p>
+                    <a href="https://github.com/fredysan651/ProyectoBblioteca/tree/main/work%20space%20proyecto/ProyectoBiblioteca" target="_blank" class="btn">Ver en GitHub</a>
+                </div>
+                <div class="project-card">
+                    <h4>Proyecto 2:</h4>
+                    <p>Video juego desarrollado con unity basado en la cultura de boyaca (EN BETA).</p>
+                    <a href="https://github.com/fredysan651/BoyacaAdventure" target="_blank" class="btn">Ver en GitHub</a>
+
+        </section>
+
+        <section id="contacto">
+            <div class="contact-info">
+                <h3>Contáctame</h3>
+                <p>¿Tienes una pregunta o propuesta? No dudes en contactarme.</p>
+                <div class="contact-links">
+                    <a href="mailto:fredyestupinan10@gmail.com">Email</a>
+                    <a href="https://www.linkedin.com/in/fredy-santiago-estupi%C3%B1%C3%A1n-velasquez-65b95a351/" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/fredysan651" target="_blank"> GitHub</a>
+                    <a href="https://wa.me/573222571931" target="_blank">WhatsApp</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
